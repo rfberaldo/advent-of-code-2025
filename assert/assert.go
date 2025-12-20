@@ -1,13 +1,15 @@
 package assert
 
+import "fmt"
+
 func NoErr(err error) {
 	if err != nil {
 		panic(err)
 	}
 }
 
-func True(v bool) {
+func True(v bool, msg ...any) {
 	if !v {
-		panic("assert/True")
+		panic(fmt.Sprint(msg...))
 	}
 }
